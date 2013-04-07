@@ -9,8 +9,20 @@ app.get('/', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-  currentValue += 1;
-  socket.emit('data', currentValue);
+  if(currentValue >= 2)
+  {
+    socket.emit('data', 'ERROR: Overload');
+  }
+  else
+  {
+    currentValue += 1;
+    io.sockets.emit('data', currentValue);
+  }
+
+  socket.on('disconnect', function() {
+	currentValue -= 1;
+	io.sockets.emit('data', currentValue);
+  });
 });
 
 server.listen(3000);
