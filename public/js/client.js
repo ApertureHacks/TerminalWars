@@ -1,3 +1,4 @@
+// vim: set ts=1 sw=2 expandtab :
 var socket = io.connect('/');
 
 socket.on('data', function(currentValue) {
@@ -24,5 +25,10 @@ function validate_form()
   }
   console.log("Not token");
 }
+
+$('#submit_choice').on('click', function() {
+  socket.emit('choose_challenge', {'username': ,
+                                   'challenge': $('#challenges_select').find(':selected').attr('value')});
+});
 
 /*End Helper Functions*/
