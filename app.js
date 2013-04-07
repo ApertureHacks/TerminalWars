@@ -7,8 +7,10 @@ var express = require('express'),
   io = require('socket.io').listen(server),
   currentValue = 0; //Number of connected users
 
+app.use(express.static(__dirname+'/public'));
+
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendfile('index.html');
 });
 
 io.sockets.on('connection', function(socket) {
