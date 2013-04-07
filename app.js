@@ -86,6 +86,7 @@ io.sockets.on('connection', function(socket) {
 
 
   socket.on('finished', function(user_info) {
+    console.log(user_info);
     setTimeout(function() {
       io.sockets.emit("end_game", user_info.username);
     }, 10000);
