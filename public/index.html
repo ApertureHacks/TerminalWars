@@ -10,7 +10,7 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <form id="main_form" method="GET">
+    <form id="main_form" method="GET" style="display: none">
       <input type="text" name="uid" id="_uid" />
       <select name="tutorial">
         <option value="_apache">Apache Setup</option>
@@ -24,9 +24,9 @@
 
       socket.on('data', function(currentValue) {
         $('h1').text(currentValue);
-        if(currentValue == "ERROR: Overload")
+        if(currentValue != "ERROR: Overload")
         {
-          $("#main_form").css('display', 'none');
+          $("#main_form").css('display', '');
         }
       });
 
