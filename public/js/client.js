@@ -2,13 +2,13 @@
 $(document).ready(function() {
   var socket = io.connect('/');
 
-  socket.on('data', function(currentValue) {
+/*  socket.on('data', function(currentValue) {
     $('h1').text(currentValue);
     if(currentValue != "ERROR: Overload")
     {
   $("#main_form").css('display', '');
     }
-  });
+  });*/
 
   socket.on('disconnect', function() {
     socket.emit('update');
@@ -19,6 +19,12 @@ $(document).ready(function() {
   });
 
   /*Begin Helper Functions*/
+
+  function clear_screen()
+  {
+    $("#main_form").css('display', 'none');
+    $("#waiting").css('display','');
+  }
 
   function validate_form()
   {
@@ -32,7 +38,7 @@ $(document).ready(function() {
   }
 
   $("#submit_choice").click(function() {
-    socket.emit('choose_challenge', {'username': $('#_uid').text(),
+    socket.emit('choose_challenge', {'username': $('#_uid').val(),
                                      'challenge': $('#challenges_select').find(':selected').attr('value')});
   });
 
