@@ -14,6 +14,9 @@ app.get('/', function(req, res) {
   res.sendfile('index.html');
 });
 
+var challenges_queue = { '_apache': [],
+                         '_tunnel': [] };
+
 io.sockets.on('connection', function(socket) {
   if(currentValue >= 2)
   {
@@ -26,8 +29,12 @@ io.sockets.on('connection', function(socket) {
   }
 
   socket.on('disconnect', function() {
-	currentValue -= 1;
-	io.sockets.emit('data', currentValue);
+    currentValue -= 1;
+    io.sockets.emit('data', currentValue);
+  });
+
+  socket.on('choose_challenge', function(data) {
+    challenges_queue[data.challenge].push({'username': data.username, 'socket': socket});
   });
 
   socket.on('check_uid', function(uid) {

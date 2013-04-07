@@ -11,13 +11,13 @@
     <script src="/js/client.js"></script>
   </head>
   <body>
-    <form id="main_form" method="GET" style="display: none">
+    <form id="main_form" style="display: none">
       <input type="text" name="uid" id="_uid" />
-      <select name="tutorial">
+      <select id="challenges_select" name="tutorial">
         <option value="_apache">Apache Setup</option>
         <option value="_tunnel">Reverse Tunnel</option>
       </select>
-      <input type="submit" value="Submit" />
+      <input class="btn" id="submit_choice" type="button" value="Submit" />
     </form>
     <h1></h1>
   </body>
