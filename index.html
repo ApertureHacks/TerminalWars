@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.io Demo Time</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	</script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+  	<h1></h1>
+    <script>
+      var socket = io.connect('/')
+
+      socket.on('data', function(currentValue) {
+        $('h1').text(currentValue);
+      });
+    </script>
+  </body>
+</html>
