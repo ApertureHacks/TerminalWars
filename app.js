@@ -5,7 +5,7 @@ var express = require('express'),
   app = express(),
   server = require('http').createServer(app),
   io = require('socket.io').listen(server),
-  currentValue = 0;
+  currentValue = 0; //Number of connected users
 
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
