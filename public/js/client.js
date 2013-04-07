@@ -14,6 +14,10 @@ $(document).ready(function() {
     socket.emit('update');
   });
 
+  socket.on('join_users', function(challenge) {
+    clear_screen();
+  });
+
   /*Begin Helper Functions*/
 
   function validate_form()
