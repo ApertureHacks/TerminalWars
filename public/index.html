@@ -20,20 +20,5 @@
       <input type="submit" value="Submit" />
     </form>
     <h1></h1>
-    <script>
-      var socket = io.connect('/')
-
-      socket.on('data', function(currentValue) {
-        $('h1').text(currentValue);
-        if(currentValue != "ERROR: Overload")
-        {
-          $("#main_form").css('display', '');
-        }
-      });
-
-      socket.on('disconnect', function() {
-        socket.emit('update');
-      });
-    </script>
   </body>
 </html>
