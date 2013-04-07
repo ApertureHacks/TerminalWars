@@ -1,3 +1,6 @@
+// vim: set ts=2 sw=2 expandtab :
+var config = require('./config.js');
+
 var express = require('express'),
   app = express(),
   server = require('http').createServer(app),
