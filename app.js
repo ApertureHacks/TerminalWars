@@ -116,10 +116,10 @@ io.sockets.on('connection', function(socket) {
     }
     setTimeout(function() {
       check_build(admin1);
-    },60000);
+    },2000);
     setTimeout(function() {
       check_build(admin2);
-    },80000);
+    },5000);
   }
 
   function start_round(admins)

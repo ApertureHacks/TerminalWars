@@ -18,12 +18,20 @@ $(document).ready(function() {
     clear_screen();
   });
 
+  socket.on('open_tty', function(data) {
+    $('#waiting').text("GO!");
+    $('#finished').css('display','');
+    window.open("http://"+data.server_ip+":8080", "Battle Station",
+      'menubar=no,toolbar=no,width=800,height=500');
+  });
+
   /*Begin Helper Functions*/
 
   function clear_screen()
   {
     $("#main_form").css('display', 'none');
-    $("#waiting").css('display','');
+    $("#waiting").css('display','').after("<br\\><span>Goal: install apache and " +
+        "configure to serve on non-standard port 8080.</span>");
   }
 
   function validate_form()
