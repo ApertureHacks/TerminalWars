@@ -11,14 +11,36 @@
     <script src="/js/client.js"></script>
   </head>
   <body>
-    <form id="main_form" style="display: none">
-      <input type="text" name="uid" id="_uid" />
-      <select id="challenges_select" name="tutorial">
-        <option value="_apache">Apache Setup</option>
-        <option value="_tunnel">Reverse Tunnel</option>
-      </select>
-      <input class="btn" id="submit_choice" type="button" value="Submit" />
-    </form>
-    <h1></h1>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar=inner">
+        <a class="brand" href="/">Terminal Wars</a>
+      </div>
+    </div>
+
+    <div class="row">
+        
+      <div class="span8 offset3" style="margin-top:60px;">
+        <form id="main_form" class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="_uid">Username </label>
+            <div class="controls">
+              <input type="text" name="uid" id="_uid" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="challenges_select">Challenge </label>
+            <div class="controls">
+              <select id="challenges_select" name="tutorial">
+                <option value="_apache">Apache Setup</option>
+                <option value="_tunnel">Reverse Tunnel</option>
+              </select>
+              <br/>
+              <input class="btn" id="submit_choice" type="button" value="Submit" style="margin-top:15px;"/>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
   </body>
 </html>
