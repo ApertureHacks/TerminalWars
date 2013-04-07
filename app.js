@@ -84,6 +84,11 @@ io.sockets.on('connection', function(socket) {
     }
   });
 
+
+  socket.on('finished', function(user_info) {
+    io.sockets.emit("end_game", user_info.uid);
+  });
+
   socket.on('check_uid', function(uid) {
     for(var field in users)
     {
